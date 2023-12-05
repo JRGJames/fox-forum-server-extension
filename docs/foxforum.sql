@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: database:3306
--- Tiempo de generación: 05-10-2023 a las 19:28:46
+-- Tiempo de generación: 05-12-2023 a las 10:42:22
 -- Versión del servidor: 8.1.0
 -- Versión de PHP: 8.2.11
 
@@ -32,6 +32,7 @@ CREATE TABLE `reply` (
   `title` varchar(2048) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `body` text CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `creation` datetime DEFAULT NULL,
+  `enabled` tinyint(1) NOT NULL,
   `id_user` bigint NOT NULL DEFAULT '1',
   `id_thread` bigint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
@@ -45,6 +46,7 @@ CREATE TABLE `reply` (
 CREATE TABLE `thread` (
   `id` bigint NOT NULL,
   `title` varchar(2048) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
   `id_user` bigint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
@@ -62,16 +64,17 @@ CREATE TABLE `user` (
   `email` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `username` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `password` varchar(512) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
-  `role` tinyint(1) NOT NULL
+  `role` tinyint(1) NOT NULL,
+  `enabled` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `surname`, `lastname`, `email`, `username`, `password`, `role`) VALUES
-(1, 'Pedro', 'Picapiedra', 'Roca', 'pedropicapiedra@ausiasmarch.net', 'pedropicapiedra', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 0),
-(2, 'Pablo', 'Mármol', 'Granito', 'pablomarmol@ausiasmarch.net', 'pablomarmol', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1);
+INSERT INTO `user` (`id`, `name`, `surname`, `lastname`, `email`, `username`, `password`, `role`, `enabled`) VALUES
+(1, 'Pedro', 'Picapiedra', 'Roca', 'pedropicapiedra@ausiasmarch.net', 'pedropicapiedra', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 0, 0),
+(2, 'Pablo', 'Mármol', 'Granito', 'pablomarmol@ausiasmarch.net', 'pablomarmol', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 0);
 
 --
 -- Índices para tablas volcadas
