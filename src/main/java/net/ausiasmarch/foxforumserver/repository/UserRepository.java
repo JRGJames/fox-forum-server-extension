@@ -11,6 +11,9 @@ import net.ausiasmarch.foxforumserver.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
+    @Query("SELECT u FROM user u WHERE u.enabled = true")
+    Optional<UserEntity> findByEnabledTrue(Long id);
+
     Optional<UserEntity> findByUsername(String username);
 
     Optional<UserEntity> findByUsernameAndPassword(String username, String password);

@@ -1,5 +1,7 @@
 package net.ausiasmarch.foxforumserver.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +35,6 @@ public class UserApi {
     public ResponseEntity<UserEntity> get(@PathVariable("username") String username) {
         return ResponseEntity.ok(oUserService.getByUsername(username));
     }
-
 
     @PostMapping("")
     public ResponseEntity<Long> create(@RequestBody UserEntity oUserEntity) {

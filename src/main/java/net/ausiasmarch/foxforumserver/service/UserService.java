@@ -1,5 +1,7 @@
 package net.ausiasmarch.foxforumserver.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
@@ -27,7 +29,12 @@ public class UserService {
     SessionService oSessionService;
 
     public UserEntity get(Long id) {
-        return oUserRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        if (oSessionService.isAdmin()) {
+            oSessionService.onlyAdmins();
+            return oUserRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        } else {
+            return oUserRepository.findByEnabledTrue(id).orElseThrow(() -> new ResourceNotFoundException("User not enabled"));
+        }        
     }
 
     public UserEntity getByUsername(String username) {

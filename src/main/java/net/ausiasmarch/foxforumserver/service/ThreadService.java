@@ -1,5 +1,7 @@
 package net.ausiasmarch.foxforumserver.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import jakarta.servlet.http.HttpServletRequest;
 import net.ausiasmarch.foxforumserver.entity.ThreadEntity;
+import net.ausiasmarch.foxforumserver.entity.UserEntity;
 import net.ausiasmarch.foxforumserver.exception.ResourceNotFoundException;
 import net.ausiasmarch.foxforumserver.helper.DataGenerationHelper;
 import net.ausiasmarch.foxforumserver.repository.ThreadRepository;
@@ -31,7 +34,12 @@ public class ThreadService {
     SessionService oSessionService;
 
     public ThreadEntity get(Long id) {
-        return oThreadRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Thread not found"));
+        if (oSessionService.isAdmin()) {
+            oSessionService.onlyAdmins();
+            return oThreadRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Thread not found"));
+        } else {
+            return oThreadRepository.findByEnabledTrue(id).orElseThrow(() -> new ResourceNotFoundException("Thread not enabled"));
+        }
     }
 
     public Page<ThreadEntity> getPage(Pageable oPageable, Long userId) {
@@ -49,7 +57,6 @@ public class ThreadService {
             return oThreadRepository.findThreadsByRepliesNumberDescFilterByUserId(userId, oPageable);
         }
     }
-
 
     public Long create(ThreadEntity oThreadEntity) {
         oThreadEntity.setId(null);
