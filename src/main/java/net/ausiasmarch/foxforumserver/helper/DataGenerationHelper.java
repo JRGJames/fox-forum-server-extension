@@ -1,13 +1,9 @@
 package net.ausiasmarch.foxforumserver.helper;
 
-import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.GregorianCalendar;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
-import org.springframework.data.convert.Jsr310Converters.LocalDateTimeToInstantConverter;
 
 public class DataGenerationHelper {
 

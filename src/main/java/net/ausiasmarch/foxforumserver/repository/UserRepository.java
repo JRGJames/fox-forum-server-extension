@@ -7,12 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import net.ausiasmarch.foxforumserver.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    @Query("SELECT u FROM user u WHERE u.enabled = true")
-    Optional<UserEntity> findByEnabledTrue(Long id);
+    @Query("SELECT u FROM UserEntity u WHERE u.enabled = true AND u.id = :id")
+    Optional<UserEntity> findByEnabledTrue(@Param("id") Long id);
 
     Optional<UserEntity> findByUsername(String username);
 

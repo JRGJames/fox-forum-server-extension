@@ -1,6 +1,5 @@
 package net.ausiasmarch.foxforumserver.repository;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -8,12 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import net.ausiasmarch.foxforumserver.entity.ThreadEntity;
 
 public interface ThreadRepository extends JpaRepository<ThreadEntity, Long> {
 
-    @Query("SELECT t FROM thread t WHERE t.enabled = true")
-    Optional<ThreadEntity> findByEnabledTrue(Long id);
+    @Query("SELECT t FROM ThreadEntity t WHERE t.enabled = true AND t.id = :id")
+    Optional<ThreadEntity> findByEnabledTrue(@Param("id") Long id);
 
     Page<ThreadEntity> findByUserId(Long id, Pageable pageable);
 
