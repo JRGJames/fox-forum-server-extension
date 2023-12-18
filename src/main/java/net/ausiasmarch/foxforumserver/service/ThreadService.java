@@ -41,7 +41,11 @@ public class ThreadService {
 
     public Page<ThreadEntity> getPage(Pageable oPageable, Long userId) {
         if (userId == 0) {
-            return oThreadRepository.findAll(oPageable);
+            if (oSessionService.isAdmin()) {
+                return oThreadRepository.findAll(oPageable);
+            } else {
+                return oThreadRepository.findAllByEnabledTrue(oPageable);
+            }
         } else {
             return oThreadRepository.findByUserId(userId, oPageable);
         }
@@ -49,7 +53,11 @@ public class ThreadService {
 
     public Page<ThreadEntity> getPageByRepliesNumberDesc(Pageable oPageable, Long userId) {
         if (userId == 0) {
-            return oThreadRepository.findThreadsByRepliesNumberDesc(oPageable);
+            if (oSessionService.isAdmin()) {
+                return oThreadRepository.findThreadsByRepliesNumberDesc(oPageable);
+            } else {
+                return oThreadRepository.findThreadsByRepliesNumberDescEnabledTrue(oPageable);
+            }
         } else {
             return oThreadRepository.findThreadsByRepliesNumberDescFilterByUserId(userId, oPageable);
         }

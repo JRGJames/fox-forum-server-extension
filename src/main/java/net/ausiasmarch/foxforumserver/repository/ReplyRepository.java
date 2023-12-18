@@ -16,6 +16,9 @@ public interface ReplyRepository extends JpaRepository<ReplyEntity, Long> {
     @Query("SELECT r FROM ReplyEntity r WHERE r.enabled = true AND r.id = :id")
     Optional<ReplyEntity> findByEnabledTrue(@Param("id") Long id);
 
+    @Query("SELECT r FROM ReplyEntity r WHERE r.thread.id = :id AND r.enabled = true")
+    Page<ReplyEntity> findAllByThreadIdEnabledTrue(@Param("id") Long id, Pageable pageable);
+
     Page<ReplyEntity> findByUserId(Long id, Pageable pageable);
 
     Page<ReplyEntity> findByThreadId(Long id, Pageable pageable);

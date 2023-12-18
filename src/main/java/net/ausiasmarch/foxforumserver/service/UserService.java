@@ -41,12 +41,20 @@ public class UserService {
     }
 
     public Page<UserEntity> getPage(Pageable oPageable) {
-        oSessionService.onlyAdmins();
-        return oUserRepository.findAll(oPageable);
+        if (oSessionService.isAdmin()) {
+            oSessionService.onlyAdmins();
+            return oUserRepository.findAll(oPageable);
+        } else {
+            return oUserRepository.findAllByEnabledTrue(oPageable);
+        }
     }
 
     public Page<UserEntity> getPageByRepliesNumberDesc(Pageable oPageable) {
-        return oUserRepository.findUsersByRepliesNumberDescFilter(oPageable);
+        if (oSessionService.isAdmin()) {
+            return oUserRepository.findUsersByRepliesNumberDescFilter(oPageable);
+        } else {
+            return oUserRepository.findUsersByRepliesNumberDescFilterEnabledTrue(oPageable);
+        }
     }
 
     public Long create(UserEntity oUserEntity) {
@@ -93,7 +101,7 @@ public class UserService {
                     .doNormalizeString(
                             name.substring(0, 3) + surname.substring(1, 3) + lastname.substring(1, 2) + i).toLowerCase();
             oUserRepository.save(new UserEntity(name, surname, lastname, email, username,
-                    "e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e", false, true));
+                    "e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e", true, true));
         }
         return oUserRepository.count();
     }
@@ -104,10 +112,10 @@ public class UserService {
         oUserRepository.deleteAll();
         oUserRepository.resetAutoIncrement();
         UserEntity oUserEntity1 = new UserEntity(1L, "Pedro", "Picapiedra", "Roca",
-                "pedropicapiedra@ausiasmarch.net", "admin", foxforumPASSWORD, true, true);
+                "pedropicapiedra@ausiasmarch.net", "pedropicapiedra", foxforumPASSWORD, false, true);
         oUserRepository.save(oUserEntity1);
         oUserEntity1 = new UserEntity(2L, "Pablo", "Mármol", "Granito", "pablomarmol@ausiasmarch.net",
-                "user", foxforumPASSWORD, false, true);
+                "pablomarmol", foxforumPASSWORD, true, true);
         oUserRepository.save(oUserEntity1);
         return oUserRepository.count();
     }

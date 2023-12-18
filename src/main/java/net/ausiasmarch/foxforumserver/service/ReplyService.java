@@ -38,7 +38,8 @@ public class ReplyService {
             oSessionService.onlyAdmins();
             return oReplyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Reply not found"));
         } else {
-            return oReplyRepository.findByEnabledTrue(id).orElseThrow(() -> new ResourceNotFoundException("Reply not enabled"));
+            return oReplyRepository.findByEnabledTrue(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Reply not enabled"));
         }
     }
 
@@ -47,7 +48,11 @@ public class ReplyService {
             if (threadId == 0) {
                 return oReplyRepository.findAll(oPageable);
             } else {
-                return oReplyRepository.findByThreadId(threadId, oPageable);
+                if (oSessionService.isAdmin()) {
+                    return oReplyRepository.findByThreadId(threadId, oPageable);
+                } else {
+                    return oReplyRepository.findAllByThreadIdEnabledTrue(threadId, oPageable);
+                }
             }
         } else {
             return oReplyRepository.findByUserId(userId, oPageable);

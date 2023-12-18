@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Base de datos: `foxforum`
 --
 
+CREATE DATABASE IF NOT EXISTS foxforum;
+
+USE foxforum;
+
 -- --------------------------------------------------------
 
 --
@@ -42,16 +46,17 @@ CREATE TABLE `reply` (
 --
 
 INSERT INTO `reply` (`id`, `title`, `body`, `creation`, `enabled`, `id_user`, `id_thread`) VALUES
-(16, 'While a book run one sun shines and one birds is. ', 'Although one sandwich barks slowly one dog sleeps. A book shines slowly but one book is. A cat barks or a sandwich ate. One sandwich reads or one car is slowly. When a friend reads slowly one book reads but a house barks. ', '2020-07-07 19:31:42', 1, 1424, 26),
-(17, 'Until one sun fly one cat sleeps softly. ', 'One sun reads loudly or the car reads slowly. The book is quickly but one friend fly softly. So that the dog reads the cat ate or the dog fly. The house fly softly and a book fly. Wherever one cat sleeps one friend ate or the cat fly. A book reads softly. A car shines slowly. One friend fly brightly but the book fly. One birds run but one book sleeps softly. One cat is softly. The sandwich barks brightly but a sandwich is softly. The friend is or one house ate brightly. ', '2020-09-20 09:25:49', 1, 1421, 24),
-(18, 'Because one friend is one cat shines. ', 'One house reads but a book shines. While the sun sleeps brightly the dog ate slowly and one book run slowly. A dog is. While a birds ate softly the birds sleeps brightly. Whether a book fly the cat fly and one book sleeps brightly. One sandwich reads. One house reads loudly. ', '2021-07-22 09:47:20', 1, 1420, 23),
-(19, 'A book fly loudly. ', 'The house ate and the sun run quickly. The house sleeps slowly. The sandwich run. One sandwich reads quickly but one dog fly. A friend shines. So that a dog is brightly the birds run or a sandwich run softly. That a sandwich barks loudly one house is and one sun fly softly. A friend reads brightly but a house is. Where one house reads a dog fly but one car reads loudly. A cat shines. Than the dog sleeps the car sleeps slowly and a book ate brightly. The sandwich ate. Whether a house run slowly one sandwich is slowly and the cat fly. ', '2023-01-23 00:12:39', 1, 1425, 26),
-(20, 'Unless one house fly a car sleeps or the friend is. ', 'The birds reads softly. A house shines or a sun is. One cat run or one cat barks. Unless a cat is the friend reads and a house sleeps. One sun ate loudly but a sandwich barks loudly. The sandwich run but the sun shines slowly. The house sleeps. After the house sleeps quickly a birds ate slowly. A cat reads or one sandwich run. The sun sleeps slowly but one cat fly softly. When a book reads quickly one friend fly brightly. A dog ate softly. The cat barks or a house is brightly. A friend run brightly. A car reads. While the friend barks a cat fly. One house ate slowly or the sandwich ate softly. The friend shines slowly or the house barks slowly. Even if a friend is quickly the car shines loudly but a book is. ', '2022-08-13 08:53:16', 1, 1419, 19),
-(21, 'The friend ate. ', 'One house shines. When one friend shines quickly a cat shines softly. In order to a car is a birds ate. A house barks quickly or a cat run quickly. The dog ate slowly. A friend ate softly or one car is loudly. ', '2022-10-23 08:49:47', 1, 1423, 17),
-(22, 'The birds run or a dog is. ', 'One car ate loudly and one house ate brightly. The friend is or a book shines. The birds shines loudly. A book shines and a house sleeps softly. One book is. The dog ate slowly and a cat is loudly. Wherever the cat reads brightly one sun is slowly but the birds reads. A sun run loudly. A dog reads. The cat barks. The friend ate softly but the house is. One house is or one dog run. A sandwich barks softly but a house shines quickly. A house barks loudly and a friend reads softly. One sandwich shines or one dog sleeps brightly. The dog ate and one sun fly. One dog shines and a sun shines softly. One birds barks. ', '2023-08-20 02:31:04', 1, 1425, 18),
-(23, 'Until the birds shines the book barks loudly. ', 'Even though one sun reads slowly the house barks slowly. The friend run softly. A book ate and a friend shines softly. One sun shines and one sandwich sleeps. The book fly. One house run but the friend barks slowly. The sun shines. The cat shines quickly and the birds ate brightly. A dog ate softly. One house fly. The book reads but a sandwich run. ', '2020-07-10 06:42:56', 1, 2, 17),
-(24, 'A house shines. ', 'The house shines and one cat fly. The cat is. A cat shines and one birds run. Provided that a dog fly the friend shines slowly and one book ate. While a sun barks a sandwich barks brightly. ', '2021-12-25 11:10:42', 1, 1416, 23),
-(25, 'The house fly softly. ', 'The birds barks brightly. One cat shines quickly. Until the cat ate the birds barks but the car sleeps. One cat shines but a friend barks brightly. So that a book barks softly one sandwich is brightly but the book barks. A car fly and a cat shines loudly. ', '2022-11-30 18:04:22', 1, 2, 20);
+(36, 'Unless a sandwich barks a cat shines or one sandwich fly softly. ', 'One birds fly brightly. A sandwich shines brightly and a birds reads loudly. One birds ate brightly and a car reads. The birds reads but a birds fly. The book reads loudly and a house fly. One cat reads but the cat sleeps. So that one car reads quickly one cat is quickly or one birds ate brightly. Until one friend ate softly the cat barks softly but a sun sleeps loudly. ', '2021-01-30 10:05:49', 1, 7, 37),
+(37, 'A car fly slowly but one sandwich barks. ', 'One sandwich reads slowly. A sandwich sleeps slowly. Even if a car is the friend run or a birds ate. One cat sleeps. The dog is slowly. If a birds reads a sun reads quickly. One house sleeps softly. A birds run slowly. One house is brightly and one house reads. The book fly softly but the birds run. A friend reads. So that a birds shines one book reads. Since the friend reads brightly the friend ate. A cat reads quickly. Though a house reads softly one friend sleeps but one sun reads brightly. Although one house sleeps one dog ate. One car sleeps quickly. The sandwich shines brightly. That one birds reads quickly one cat barks. Until a sun barks brightly the house run quickly and one house run loudly. ', '2021-11-09 16:37:53', 1, 8, 43),
+(38, 'One house is slowly and one friend barks brightly. ', 'The birds run softly and the cat shines softly. The book sleeps brightly but one birds is. One car ate quickly but the sun sleeps. A cat fly loudly but the book fly. A dog shines softly. Although a friend fly a sandwich fly loudly. When the sun ate quickly a book shines slowly. One cat shines brightly or a sun reads loudly. Where the car ate one friend run loudly. A book run softly. The cat barks or the book shines. A car run or the dog ate brightly. A car sleeps brightly but one friend sleeps quickly. A cat shines brightly but the house is loudly. The sandwich shines softly or the dog ate. Whether the birds barks softly a house shines brightly. The book reads. Though one birds barks the sandwich barks slowly. One book reads. One book is. The birds fly loudly or a house fly. A sandwich reads. The sun sleeps quickly. ', '2021-06-29 09:35:27', 1, 12, 42),
+(39, 'Even if a birds sleeps a birds reads. ', 'That one book sleeps a dog reads. If the friend fly quickly the friend run slowly or one birds shines loudly. The cat sleeps slowly. The book shines or the sun barks brightly. Where the book sleeps one car reads quickly. A birds ate. A sandwich ate softly or the book ate. A birds barks. A birds run but the sun fly. A sandwich ate slowly. A cat fly softly. One car shines softly and a birds sleeps slowly. Before a friend barks a cat barks but a book barks. Wherever the book fly a car fly. The car barks. A birds is and a house reads slowly. ', '2021-03-24 06:50:43', 1, 1, 45),
+(40, 'Unless one sun run a sandwich sleeps. ', 'A cat run. A cat is softly. The car fly softly. One sun reads. In order to a dog fly loudly the house is softly. Whenever the book barks softly one dog run quickly. One book run and the dog is brightly. The house run brightly. One sandwich sleeps brightly or the dog fly softly. Before a book reads a book sleeps. So that the car sleeps softly the birds ate and one birds sleeps brightly. Even if one sandwich run the book run softly. A car fly brightly but one birds is. One house barks quickly. One car reads softly or one car reads brightly. Though the dog fly the dog is brightly and a house run loudly. Whenever one house is a birds reads quickly. Once one dog shines quickly one sun sleeps and the friend shines loudly. A cat barks and a friend fly. A car is and a sandwich barks softly. Once a book is quickly the dog fly brightly. ', '2021-07-27 02:15:37', 1, 3, 37),
+(41, 'The sun barks loudly. ', 'Where the house sleeps slowly one book ate but a cat run softly. One sun sleeps slowly or a dog ate slowly. One dog barks brightly and one birds reads. So that one house sleeps quickly a birds fly softly. If a dog barks a car shines softly. The sandwich ate loudly and the sun sleeps. Though one house ate softly the sun shines. The sun reads slowly. The sun ate and a house barks brightly. Though one car fly the cat barks brightly. One house is. One dog run but one dog barks. A book reads and the sun is loudly. One book reads. A car barks. A dog sleeps loudly but the friend reads. A book reads quickly. Since the house ate the house barks softly but the sun is softly. Than the sun barks slowly the dog barks. One car fly. A birds sleeps slowly but the birds is loudly. ', '2021-05-26 18:45:06', 1, 8, 45),
+(42, 'The house is. ', 'Because a birds sleeps softly a sun fly slowly. A cat sleeps. A cat run. Whenever a sandwich ate one sun fly brightly or one book is loudly. A sun ate and a book run. The car barks. After one sun ate loudly a house ate but one sandwich reads quickly. The cat run and the cat ate loudly. One house sleeps slowly but the dog sleeps loudly. Wherever a book barks slowly a car run. Whenever the birds reads the birds shines loudly or a birds is loudly. The birds ate quickly. The sun reads slowly. After the birds barks softly one friend fly or the cat shines slowly. The book barks softly. ', '2020-07-26 19:29:09', 1, 11, 43),
+(43, 'Even though one sun shines loudly one birds fly softly. ', 'Unless one sun barks the sun ate but one dog run. If a birds ate loudly the sun reads. The birds is quickly and the birds is brightly. One friend ate. A book reads softly and a car barks softly. The sandwich is softly or a sandwich run. A sun reads. One birds run brightly. Wherever one friend ate a friend is slowly. The dog reads. One car fly loudly. One car fly but the dog run softly. After one house ate a car fly softly. The car shines or a sandwich reads. One sun barks. After one dog barks slowly a house run loudly. As one house shines softly a cat run and the sun reads. A friend fly. When one dog reads slowly the sandwich sleeps brightly or one friend sleeps. A birds is or a cat is slowly. ', '2021-02-06 15:19:17', 1, 7, 43),
+(44, 'As one sun reads the friend reads softly and a dog barks softly. ', 'One dog shines brightly or one house run brightly. While the dog sleeps loudly a sandwich ate loudly. The cat run loudly and the friend reads. One house is quickly. The dog reads brightly and a birds ate. A book run or one friend barks. One birds is. ', '2022-07-18 16:25:20', 1, 3, 41),
+(45, 'Although a birds shines one house reads loudly and a cat run. ', 'One friend run. When a dog ate slowly one dog fly but one sandwich shines. Until a sandwich fly a dog is but a book barks slowly. The sun ate. A friend reads. Wherever the birds reads slowly one car barks. One sun run quickly. One book run softly. ', '2023-05-07 06:01:14', 1, 10, 45),
+(46, 'wqe effsd', 'sdfsfdafsd', '2023-12-18 08:32:53', 0, 5, 44);
 
 -- --------------------------------------------------------
 
@@ -71,16 +76,16 @@ CREATE TABLE `thread` (
 --
 
 INSERT INTO `thread` (`id`, `title`, `enabled`, `id_user`) VALUES
-(17, 'The book run. ', 1, 1420),
-(18, 'One birds ate slowly but a book reads. ', 1, 1),
-(19, 'One house barks loudly and the dog is. ', 1, 1418),
-(20, 'The house reads but a cat ate. ', 1, 1418),
-(21, 'One sun ate but the book reads. ', 1, 2),
-(22, 'A birds sleeps slowly or the car sleeps. ', 1, 1),
-(23, 'Unless one cat reads a dog barks. ', 1, 1),
-(24, 'One house sleeps softly. ', 1, 1420),
-(25, 'One house ate. ', 1, 1424),
-(26, 'So that a cat barks the house barks quickly or the sun fly. ', 1, 1419);
+(37, 'A friend sleeps brightly. ', 0, 12),
+(38, 'A birds barks brightly but a cat sleeps loudly. ', 0, 5),
+(39, 'Unless one book ate slowly one sun reads or a house barks. ', 0, 1),
+(40, 'A dog shines and a sun shines. ', 0, 2),
+(41, 'A birds sleeps. ', 0, 12),
+(42, 'The birds fly loudly and a house ate brightly. ', 0, 1),
+(43, 'A sandwich fly brightly or a friend shines softly. ', 0, 8),
+(44, 'Unless the friend ate quickly a house is or one book fly. ', 0, 3),
+(45, 'After one birds ate a car run quickly. ', 0, 3),
+(46, 'The sun shines slowly. ', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -105,18 +110,20 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `lastname`, `email`, `username`, `password`, `role`, `enabled`) VALUES
-(1, 'Pedro', 'Picapiedra', 'Roca', 'pedropicapiedra@ausiasmarch.net', 'admin', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 0, 1),
-(2, 'Pablo', 'Mármol', 'Granito', 'pablomarmol@ausiasmarch.net', 'user', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1416, 'Jesús', 'Alcañiz', 'Puig', 'jesalcpu0@ausiasmarch.net', 'jeslcu0', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1417, 'Jesús', 'McLure', 'Alarcón', 'jesmclal1@ausiasmarch.net', 'jescll1', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1418, 'Laura', 'Aznar', 'Velarte', 'lauaznve2@ausiasmarch.net', 'lauzne2', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1419, 'Laura', 'López', 'Velarte', 'laulópve3@ausiasmarch.net', 'lauope3', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1420, 'José Antonio', 'Serrano', 'Ferrer', 'josserfe4@ausiasmarch.net', 'josere4', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1421, 'José Antonio', 'Latorre', 'McLure', 'joslatmc5@ausiasmarch.net', 'josatc5', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1422, 'Raquel', 'Ayala', 'Briones', 'raqayabr6@ausiasmarch.net', 'raqyar6', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1423, 'Eva', 'Ayala', 'Gómez', 'evaayagó7@ausiasmarch.net', 'evayao7', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 0),
-(1424, 'Eva', 'Maldonado', 'Aparici', 'evamalap8@ausiasmarch.net', 'evaalp8', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
-(1425, 'Mónica', 'Cano', 'Serrano', 'móncanse9@ausiasmarch.net', 'monane9', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 0);
+(1, 'Pedro', 'Picapiedra', 'Roca', 'pedropicapiedra@ausiasmarch.net', 'pedropicapiedra', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 0, 1),
+(2, 'Pablo', 'Mármol', 'Granito', 'pablomarmol@ausiasmarch.net', 'pablomarmol', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(3, 'José Antonio', 'McLure', 'Aguilar', 'josmclag0@ausiasmarch.net', 'josclg0', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(4, 'Jaime', 'Romero', 'Lara', 'jairomla1@ausiasmarch.net', 'jaioma1', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(5, 'Jesús', 'Navarro', 'Cano', 'jesnavca2@ausiasmarch.net', 'jesava2', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(6, 'Eva', 'Quilez', 'Ortega', 'evaquior3@ausiasmarch.net', 'evauir3', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(7, 'José Antonio', 'Navas', 'Muñoz', 'josnavmu4@ausiasmarch.net', 'josavu4', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(8, 'Eloy', 'González', 'Alcañiz', 'elogonal5@ausiasmarch.net', 'eloonl5', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(9, 'Eloy', 'Navas', 'González', 'elonavgo6@ausiasmarch.net', 'eloavo6', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(10, 'Lucas', 'Farell', 'Aznar', 'lucfaraz7@ausiasmarch.net', 'lucarz7', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 0),
+(11, 'Elena', 'Molero', 'Molero', 'elemolmo8@ausiasmarch.net', 'eleolo8', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(12, 'Fernando', 'Ferrer', 'Esteve', 'ferferes9@ausiasmarch.net', 'ferers9', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 1),
+(13, 'fgdgdg', 'dfgdfgd', 'dfgdfgd', 'jaja@gmail.com', 'jajhgdfg', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 0, 1),
+(14, 'fsdfdsfsd', 'sdfsdfsdfs', 'sdfsdfsdf', 'fsdfsdf@gmail.com', 'fsfsdfsf', 'e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -148,19 +155,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `thread`
 --
 ALTER TABLE `thread`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1426;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
