@@ -67,11 +67,14 @@ public class UserService {
     public UserEntity update(UserEntity oUserEntityToSet) {
         UserEntity oUserEntityFromDatabase = this.get(oUserEntityToSet.getId());
         oSessionService.onlyAdminsOrUsersWithIisOwnData(oUserEntityFromDatabase.getId());
+        
         if (oSessionService.isUser()) {            
+            oUserEntityToSet.setEnabled(oUserEntityFromDatabase.getEnabled());
             oUserEntityToSet.setRole(oUserEntityFromDatabase.getRole());
             oUserEntityToSet.setPassword(foxforumPASSWORD);
+            
             return oUserRepository.save(oUserEntityToSet);
-        } else {            
+        } else {
             oUserEntityToSet.setPassword(foxforumPASSWORD);
             return oUserRepository.save(oUserEntityToSet);
         }
